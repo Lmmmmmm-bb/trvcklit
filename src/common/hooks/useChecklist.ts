@@ -1,12 +1,23 @@
-import { useEffect, useState } from 'react';
-import { ICheckItem } from '../models';
+import { useEffect, useMemo, useState } from 'react';
+import { ICheckItem, LocalKeysEnum } from '../models';
 import { useSupa } from './useSupa';
 
-export const useChecklist = () => {
+export const useChecklist = (localKey: LocalKeysEnum) => {
+  const excludeType = localKey === 'X_ME_CHECKLIST' ? 'you' : 'me';
   const supabase = useSupa();
   const [checklist, setChecklist] = useState<ICheckItem[]>(
-    JSON.parse(localStorage.getItem('checklist') || '[]')
+    JSON.parse(localStorage.getItem(localKey) || '[]')
   );
+
+  const category = useMemo<Record<string, ICheckItem[]>>(() => {
+    const result = {};
+    checklist.forEach((item) => {
+      result[item.category]
+        ? result[item.category].push(item)
+        : (result[item.category] = [item]);
+    });
+    return result;
+  }, [checklist]);
 
   const setCheckItem = (id: number) => {
     const newChecklist = checklist.map((item) =>
@@ -16,7 +27,10 @@ export const useChecklist = () => {
   };
 
   const fetchList = async () => {
-    const { data } = await supabase.from<ICheckItem>('checklist').select();
+    const { data } = await supabase
+      .from<ICheckItem>('checklist')
+      .select()
+      .not('type', 'eq', excludeType);
     setChecklist(data ?? []);
   };
 
@@ -25,8 +39,8 @@ export const useChecklist = () => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem('checklist', JSON.stringify(checklist));
+    localStorage.setItem(localKey, JSON.stringify(checklist));
   }, [checklist]);
 
-  return { checklist, setCheckItem };
+  return { category, setCheckItem };
 };
