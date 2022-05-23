@@ -1,5 +1,7 @@
 import { FC, ReactNode, useMemo } from 'react';
+import { motion } from 'framer-motion';
 import styles from './index.module.scss';
+import { motionProps } from './config';
 
 interface ICardCheckerProps {
   checked: boolean;
@@ -15,9 +17,14 @@ const CardChecker: FC<ICardCheckerProps> = (props) => {
   );
 
   return (
-    <div className={styles.wrapper} style={{ background }} onClick={onClick}>
+    <motion.div
+      className={styles.wrapper}
+      style={{ background }}
+      onClick={onClick}
+      {...motionProps}
+    >
       {children}
-    </div>
+    </motion.div>
   );
 };
 
