@@ -1,0 +1,23 @@
+.wrapper {
+  padding: 10px;
+
+  .title {
+    font-size: 20px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .divider {
+    margin: 24px 0 16px;
+  }
+
+  .cardWrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 20px;
+    grid-auto-rows: 50px;
+    align-items: center;
+    text-align: center;
+  }
+}
