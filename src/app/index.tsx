@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Switch from '@/pages/switch';
-import You from '@/pages/you';
-import Me from '@/pages/me';
+import Switch from '@/layouts/switch';
+import You from '@/layouts/you';
+import Me from '@/layouts/me';
 
 const App: FC = () => {
   return (
