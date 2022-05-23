@@ -1,7 +1,8 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@douyinfe/semi-ui';
 import styles from './index.module.scss';
-import { useNavigate } from 'react-router-dom';
+import BackgroundImg from '@/assets/background.webp';
 
 const Switch: FC = () => {
   const navigator = useNavigate();
@@ -16,6 +17,7 @@ const Switch: FC = () => {
       <Button theme='borderless' onClick={() => handleNavigate('me')}>
         ME
       </Button>
+      <img className={styles.image} src={BackgroundImg} />
     </div>
   );
 };
