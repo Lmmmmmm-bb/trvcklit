@@ -28,10 +28,10 @@
     "build": "tsc && vite build",
     "preview": "vite preview",
     "lint:fix": "eslint --ext .tsx,.ts,.js, --fix ./src --fix",
-    "lint:check": "npx prettier --check .",
-    "lint:rewrite": "npx prettier --write .",
+    "lint:check": "pnpm prettier --check .",
+    "lint:rewrite": "pnpm prettier --write .",
     "prepare": "husky install",
-    "style:watch": "./node_modules/.bin/typed-scss-modules src --watch --ignore \"**/index.scss\""
+    "style:watch": "pnpm typed-scss-modules src --watch --ignore \"**/index.scss\""
   },
   "dependencies": {
     "@douyinfe/semi-ui": "^2.10.2",
