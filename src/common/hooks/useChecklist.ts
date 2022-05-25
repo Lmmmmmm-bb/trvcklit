@@ -3,8 +3,9 @@ import { ICheckItem, LocalKeysEnum } from '../models';
 import { useSupa } from './useSupa';
 
 export const useChecklist = (localKey: LocalKeysEnum) => {
-  const excludeType = localKey === 'X_ME_CHECKLIST' ? 'you' : 'me';
+  const excludeType = localKey === LocalKeysEnum.Me ? 'you' : 'me';
   const supabase = useSupa();
+  const [isFetching, setIsFetching] = useState(false);
   const [checklist, setChecklist] = useState<ICheckItem[]>(
     JSON.parse(localStorage.getItem(localKey) || '[]')
   );
@@ -27,11 +28,18 @@ export const useChecklist = (localKey: LocalKeysEnum) => {
   };
 
   const fetchList = async () => {
-    const { data } = await supabase
-      .from<ICheckItem>('checklist')
-      .select()
-      .not('type', 'eq', excludeType);
-    setChecklist(data ?? []);
+    setIsFetching(true);
+    try {
+      const { data } = await supabase
+        .from<ICheckItem>('checklist')
+        .select()
+        .not('type', 'eq', excludeType);
+      setChecklist(data ?? []);
+    } catch (err) {
+      // no-console
+    } finally {
+      setIsFetching(false);
+    }
   };
 
   useEffect(() => {
@@ -42,5 +50,5 @@ export const useChecklist = (localKey: LocalKeysEnum) => {
     localStorage.setItem(localKey, JSON.stringify(checklist));
   }, [checklist]);
 
-  return { category, setCheckItem };
+  return { category, setCheckItem, isFetching, refresh: fetchList };
 };
