@@ -1,18 +1,37 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
+import { Divider } from '@douyinfe/semi-ui';
 import styles from './index.module.scss';
 import CardChecker from '@/components/card-checker';
 import { useChecklist } from '@/common/hooks';
 import { motionProps } from './config';
-import { Divider } from '@douyinfe/semi-ui';
 import { LocalKeysEnum } from '@/common/models';
 
 const You: FC = () => {
-  const { setCheckItem, category } = useChecklist(LocalKeysEnum.You);
+  const { setCheckItem, category, isFetching, refresh } = useChecklist(
+    LocalKeysEnum.You
+  );
 
   return (
     <div className={styles.wrapper}>
-      <h3 className={styles.title}>YOU</h3>
+      {isFetching ? (
+        <motion.div
+          layoutId='loadingLayout'
+          className={styles.title}
+          {...motionProps}
+        >
+          ...
+        </motion.div>
+      ) : (
+        <motion.h3
+          layoutId='loadingLayout'
+          className={styles.title}
+          onClick={refresh}
+          {...motionProps}
+        >
+          YOU
+        </motion.h3>
+      )}
       <motion.div {...motionProps}>
         {Object.keys(category).map((key) => {
           const currentCategory = category[key];

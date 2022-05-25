@@ -8,11 +8,30 @@ import { Divider } from '@douyinfe/semi-ui';
 import { LocalKeysEnum } from '@/common/models';
 
 const Me: FC = () => {
-  const { setCheckItem, category } = useChecklist(LocalKeysEnum.Me);
+  const { setCheckItem, category, isFetching, refresh } = useChecklist(
+    LocalKeysEnum.Me
+  );
 
   return (
     <div className={styles.wrapper}>
-      <h3 className={styles.title}>ME</h3>
+      {isFetching ? (
+        <motion.div
+          layoutId='loadingLayout'
+          className={styles.title}
+          {...motionProps}
+        >
+          ...
+        </motion.div>
+      ) : (
+        <motion.h3
+          layoutId='loadingLayout'
+          className={styles.title}
+          onClick={refresh}
+          {...motionProps}
+        >
+          ME
+        </motion.h3>
+      )}
       <motion.div {...motionProps}>
         {Object.keys(category).map((key) => {
           const currentCategory = category[key];
