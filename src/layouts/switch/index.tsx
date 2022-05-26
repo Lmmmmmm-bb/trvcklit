@@ -17,7 +17,7 @@ const Switch: FC = () => {
       <Button theme='borderless' onClick={() => handleNavigate('me')}>
         ME
       </Button>
-      <img className={styles.image} src={BackgroundImg} />
+      <img className={styles.image} src={BackgroundImg} draggable={false} />
     </div>
   );
 };
