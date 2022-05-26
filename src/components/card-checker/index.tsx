@@ -1,18 +1,17 @@
-import { FC, ReactNode, useMemo } from 'react';
+import { FC, useMemo, PropsWithChildren } from 'react';
 import { motion } from 'framer-motion';
+import { checkerColor, motionProps } from './config';
 import styles from './index.module.scss';
-import { motionProps } from './config';
 
 interface ICardCheckerProps {
   checked: boolean;
-  children: ReactNode;
   onClick: () => void;
 }
 
-const CardChecker: FC<ICardCheckerProps> = (props) => {
+const CardChecker: FC<PropsWithChildren<ICardCheckerProps>> = (props) => {
   const { checked, children, onClick } = props;
   const background = useMemo(
-    () => (checked ? '#3bb346' : '#a9abc6'),
+    () => (checked ? checkerColor.checked : checkerColor.unchecked),
     [checked]
   );
 

@@ -9,3 +9,8 @@ export const motionProps = {
     }
   }
 };
+
+export const checkerColor = {
+  checked: '#3bb346',
+  unchecked: '#a9abc6'
+};

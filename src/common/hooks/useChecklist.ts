@@ -1,13 +1,14 @@
 import { useEffect, useMemo, useState } from 'react';
+import { useSupa } from '.';
 import { ICheckItem, LocalKeysEnum } from '../models';
-import { useSupa } from './useSupa';
+import { getLocalItem, setLocalItem } from '../utils';
 
 export const useChecklist = (localKey: LocalKeysEnum) => {
   const excludeType = localKey === LocalKeysEnum.Me ? 'you' : 'me';
   const supabase = useSupa();
   const [isFetching, setIsFetching] = useState(false);
   const [checklist, setChecklist] = useState<ICheckItem[]>(
-    JSON.parse(localStorage.getItem(localKey) || '[]')
+    JSON.parse(getLocalItem(localKey, '[]'))
   );
 
   const category = useMemo<Record<string, ICheckItem[]>>(() => {
@@ -47,8 +48,8 @@ export const useChecklist = (localKey: LocalKeysEnum) => {
   }, []);
 
   useEffect(() => {
-    localStorage.setItem(localKey, JSON.stringify(checklist));
+    setLocalItem(localKey, JSON.stringify(checklist));
   }, [checklist]);
 
-  return { category, setCheckItem, isFetching, refresh: fetchList };
+  return { category, isFetching, setCheckItem, refresh: fetchList };
 };
