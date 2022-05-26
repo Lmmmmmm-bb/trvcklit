@@ -1,10 +1,10 @@
 import { FC } from 'react';
 import { motion } from 'framer-motion';
+import { Divider } from '@douyinfe/semi-ui';
 import styles from './index.module.scss';
 import CardChecker from '@/components/card-checker';
 import { useChecklist } from '@/common/hooks';
 import { motionProps } from './config';
-import { Divider } from '@douyinfe/semi-ui';
 import { LocalKeysEnum } from '@/common/models';
 
 const Me: FC = () => {
