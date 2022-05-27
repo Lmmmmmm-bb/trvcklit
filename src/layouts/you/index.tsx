@@ -26,13 +26,13 @@ const You: FC = () => {
           onClick={() => navigator('/')}
         />
         {isFetching ? (
-          <motion.div
+          <motion.h3
             layoutId='loadingLayout'
             className={styles.title}
             {...motionProps}
           >
             ...
-          </motion.div>
+          </motion.h3>
         ) : (
           <motion.h3
             layoutId='loadingLayout'

@@ -1,4 +1,6 @@
-export const motionProps = {
+import { MotionProps } from 'framer-motion';
+
+export const motionProps: MotionProps = {
   initial: 'hidden',
   animate: 'visible',
   variants: {
