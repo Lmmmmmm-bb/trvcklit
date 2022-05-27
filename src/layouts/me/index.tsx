@@ -1,37 +1,50 @@
 import { FC } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Divider } from '@douyinfe/semi-ui';
+import { Button, Divider } from '@douyinfe/semi-ui';
+import { IconArrowLeft } from '@douyinfe/semi-icons';
 import styles from './index.module.scss';
 import CardChecker from '@/components/card-checker';
 import { useChecklist } from '@/common/hooks';
 import { motionProps } from './config';
 import { LocalKeysEnum } from '@/common/models';
+import ThemeSwitch from '@/components/theme-switch';
 
 const Me: FC = () => {
+  const navigator = useNavigate();
   const { setCheckItem, category, isFetching, refresh } = useChecklist(
     LocalKeysEnum.Me
   );
 
   return (
     <div className={styles.wrapper}>
-      {isFetching ? (
-        <motion.div
-          layoutId='loadingLayout'
-          className={styles.title}
-          {...motionProps}
-        >
-          ...
-        </motion.div>
-      ) : (
-        <motion.h3
-          layoutId='loadingLayout'
-          className={styles.title}
-          onClick={refresh}
-          {...motionProps}
-        >
-          ME
-        </motion.h3>
-      )}
+      <div className={styles.headerWrapper}>
+        <Button
+          theme='borderless'
+          type='tertiary'
+          icon={<IconArrowLeft />}
+          onClick={() => navigator('/')}
+        />
+        {isFetching ? (
+          <motion.h3
+            layoutId='loadingLayout'
+            className={styles.title}
+            {...motionProps}
+          >
+            ...
+          </motion.h3>
+        ) : (
+          <motion.h3
+            layoutId='loadingLayout'
+            className={styles.title}
+            onClick={refresh}
+            {...motionProps}
+          >
+            ME
+          </motion.h3>
+        )}
+        <ThemeSwitch />
+      </div>
       <motion.div {...motionProps}>
         {Object.keys(category).map((key) => {
           const currentCategory = category[key];
