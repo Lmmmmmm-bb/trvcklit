@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import { Toast } from '@douyinfe/semi-ui';
 import { useSupa } from '.';
 import { ICheckItem, LocalKeysEnum } from '../models';
 import { getLocalItem, setLocalItem } from '../utils';
@@ -37,7 +38,7 @@ export const useChecklist = (localKey: LocalKeysEnum) => {
         .not('type', 'eq', excludeType);
       setChecklist(data ?? []);
     } catch (err) {
-      // no-console
+      Toast.error(`获取列表失败，请稍后重试`);
     } finally {
       setIsFetching(false);
     }
