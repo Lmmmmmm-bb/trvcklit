@@ -24,13 +24,11 @@ const App: FC = () => {
 
   return (
     <appContext.Provider value={{ themeMode, toggleTheme }}>
-      <div style={{ height: '100%' }}>
-        <Routes>
-          <Route path='/' element={<Switch />} />
-          <Route path='/you' element={<You />} />
-          <Route path='/me' element={<Me />} />
-        </Routes>
-      </div>
+      <Routes>
+        <Route path='/' element={<Switch />} />
+        <Route path='/you' element={<You />} />
+        <Route path='/me' element={<Me />} />
+      </Routes>
     </appContext.Provider>
   );
 };
