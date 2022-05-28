@@ -12,17 +12,19 @@ const ThemeSwitch: FC = () => {
 
   return (
     <div className={styles.wrapper} onClick={toggleTheme}>
-      <AnimatePresence exitBeforeEnter>
-        {themeMode === ThemeModeEnum.Light ? (
-          <motion.div {...motionProps} key='moon'>
-            <Button theme='borderless' type='tertiary' icon={<IconMoon />} />
-          </motion.div>
-        ) : (
-          <motion.div {...motionProps} key='sun'>
-            <Button theme='borderless' type='tertiary' icon={<IconSun />} />
-          </motion.div>
-        )}
-      </AnimatePresence>
+      <Button theme='borderless' type='tertiary'>
+        <AnimatePresence exitBeforeEnter>
+          {themeMode === ThemeModeEnum.Light ? (
+            <motion.div {...motionProps} key='moon'>
+              <IconMoon />
+            </motion.div>
+          ) : (
+            <motion.div {...motionProps} key='sun'>
+              <IconSun />
+            </motion.div>
+          )}
+        </AnimatePresence>
+      </Button>
     </div>
   );
 };
