@@ -1,10 +1,20 @@
 .wrapper {
   width: 100%;
-  height: 80vh;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  font-size: 30px;
+  height: 100%;
+
+  .themeWrapper {
+    display: flex;
+    justify-content: end;
+  }
+
+  .innerWrapper {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 30px;
+  }
 
   .image {
     position: absolute;
