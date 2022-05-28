@@ -2,6 +2,12 @@
   width: 100%;
   height: 100%;
 
+  :global {
+    .semi-button {
+      z-index: 1;
+    }
+  }
+
   .themeWrapper {
     display: flex;
     justify-content: end;
