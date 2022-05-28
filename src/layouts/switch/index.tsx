@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@douyinfe/semi-ui';
 import styles from './index.module.scss';
 import BackgroundImg from '@/assets/background.webp';
+import ThemeSwitch from '@/components/theme-switch';
 
 const Switch: FC = () => {
   const navigator = useNavigate();
@@ -11,18 +12,23 @@ const Switch: FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <Button theme='borderless' onClick={() => handleNavigate('you')}>
-        YOU
-      </Button>
-      <Button theme='borderless' onClick={() => handleNavigate('me')}>
-        ME
-      </Button>
-      <img
-        className={styles.image}
-        alt='background'
-        src={BackgroundImg}
-        draggable={false}
-      />
+      <div className={styles.themeWrapper}>
+        <ThemeSwitch />
+      </div>
+      <div className={styles.innerWrapper}>
+        <Button theme='borderless' onClick={() => handleNavigate('you')}>
+          YOU
+        </Button>
+        <Button theme='borderless' onClick={() => handleNavigate('me')}>
+          ME
+        </Button>
+        <img
+          className={styles.image}
+          alt='background'
+          src={BackgroundImg}
+          draggable={false}
+        />
+      </div>
     </div>
   );
 };
