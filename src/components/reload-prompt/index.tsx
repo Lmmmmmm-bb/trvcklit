@@ -33,7 +33,7 @@ const ReloadPrompt: FC = () => {
     <div className={styles.wrapper}>
       {(offlineReady || needRefresh) && (
         <div className={styles.toast}>
-          <div className={styles.message}>
+          <div className={`${styles.message} toast-message`}>
             {offlineReady ? (
               <span>应用程序已准备好离线工作</span>
             ) : (
