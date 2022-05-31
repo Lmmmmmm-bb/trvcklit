@@ -1,7 +1,19 @@
 import { defineConfig, loadEnv } from 'vite';
-import react from '@vitejs/plugin-react';
 import { resolve } from 'path';
-import { VitePWA } from 'vite-plugin-pwa';
+import react from '@vitejs/plugin-react';
+import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
+
+const pwaOptions: Partial<VitePWAOptions> = {
+  devOptions: { enabled: true },
+  includeAssets: ['robots.txt', 'favicon.ico', 'apple-touch-icon.png'],
+  workbox: { globPatterns: ['assets/background.webp'] },
+  manifest: {
+    name: 'Trvcklit - travel checklist helper',
+    short_name: 'Trvcklit',
+    background_color: '#f5f5f5',
+    display: 'fullscreen'
+  }
+};
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => {
@@ -9,7 +21,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     base: env.APP_BASE_URL,
-    plugins: [react(), VitePWA()],
+    plugins: [react(), VitePWA(pwaOptions)],
     envPrefix: 'APP_',
     resolve: {
       alias: {

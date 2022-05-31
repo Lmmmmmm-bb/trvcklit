@@ -26,7 +26,7 @@
   "scripts": {
     "dev": "vite --host & pnpm style:watch",
     "build": "tsc && vite build",
-    "preview": "vite preview",
+    "preview": "vite preview --host",
     "lint:fix": "eslint --ext .tsx,.ts,.js, --fix ./src --fix",
     "lint:check": "pnpm prettier --check .",
     "lint:rewrite": "pnpm prettier --write .",
@@ -63,7 +63,8 @@
     "typed-scss-modules": "^6.4.1",
     "typescript": "^4.6.3",
     "vite": "^2.9.9",
-    "vite-plugin-pwa": "^0.12.0"
+    "vite-plugin-pwa": "^0.12.0",
+    "workbox-window": "^6.5.3"
   },
   "lint-staged": {
     "**/*": "prettier --write --ignore-unknown",

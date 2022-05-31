@@ -6,6 +6,7 @@ import Me from '@/layouts/me';
 import { appContext } from './context';
 import { useTheme } from '@/common/hooks';
 import { ThemeModeEnum } from '@/common/models';
+import ReloadPrompt from '@/components/reload-prompt';
 
 const App: FC = () => {
   const { themeMode, toggleTheme, setThemeMode } = useTheme();
@@ -29,6 +30,7 @@ const App: FC = () => {
         <Route path='/you' element={<You />} />
         <Route path='/me' element={<Me />} />
       </Routes>
+      <ReloadPrompt />
     </appContext.Provider>
   );
 };
