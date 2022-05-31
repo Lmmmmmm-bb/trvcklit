@@ -38,7 +38,7 @@ export const useChecklist = (localKey: LocalKeysEnum) => {
         .not('type', 'eq', excludeType);
       setChecklist(data ?? []);
     } catch (err) {
-      Toast.error(`获取列表失败，请稍后重试`);
+      Toast.error('获取列表失败，请稍后重试');
     } finally {
       setIsFetching(false);
     }
