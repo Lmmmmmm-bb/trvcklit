@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ThemeModeEnum } from '../models';
+import { addThemeColorMetaTag } from '../utils';
 import { isSystemDarkMode } from '../utils/system-theme';
 
 const BODY_THEME_TAG = 'theme-mode';
@@ -20,6 +21,7 @@ export const useTheme = () => {
 
   useEffect(() => {
     const body = document.body;
+    addThemeColorMetaTag(themeMode);
     body.setAttribute(BODY_THEME_TAG, themeMode);
   }, [themeMode]);
 
