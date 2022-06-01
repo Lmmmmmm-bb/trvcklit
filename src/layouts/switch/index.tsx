@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Button } from '@douyinfe/semi-ui';
+import { IconFemale, IconMale } from '@douyinfe/semi-icons';
 import styles from './index.module.scss';
 import BackgroundImg from '@/assets/background.webp';
 import ThemeSwitch from '@/components/theme-switch';
@@ -16,10 +17,18 @@ const Switch: FC = () => {
         <ThemeSwitch />
       </div>
       <div className={styles.innerWrapper}>
-        <Button theme='borderless' onClick={() => handleNavigate('you')}>
+        <Button
+          theme='borderless'
+          icon={<IconFemale />}
+          onClick={() => handleNavigate('you')}
+        >
           YOU
         </Button>
-        <Button theme='borderless' onClick={() => handleNavigate('me')}>
+        <Button
+          theme='borderless'
+          icon={<IconMale />}
+          onClick={() => handleNavigate('me')}
+        >
           ME
         </Button>
         <img
