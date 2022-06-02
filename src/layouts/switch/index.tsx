@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { Button } from '@douyinfe/semi-ui';
 import { IconFemale, IconMale } from '@douyinfe/semi-icons';
 import styles from './index.module.scss';
-import BackgroundImg from '@/assets/background.webp';
+import BackgroundImg from '/background.webp';
 import ThemeSwitch from '@/components/theme-switch';
 
 const Switch: FC = () => {
