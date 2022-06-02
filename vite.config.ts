@@ -5,8 +5,12 @@ import { VitePWA, VitePWAOptions } from 'vite-plugin-pwa';
 
 const pwaOptions: Partial<VitePWAOptions> = {
   devOptions: { enabled: true },
-  includeAssets: ['robots.txt', 'favicon.ico', 'apple-touch-icon.png'],
-  workbox: { globPatterns: ['assets/background.webp'] },
+  includeAssets: [
+    'robots.txt',
+    'favicon.ico',
+    'apple-touch-icon.png',
+    'background.webp'
+  ],
   manifest: {
     name: 'Trvcklit - travel checklist helper',
     short_name: 'Trvcklit',
