@@ -1,5 +1,5 @@
 export const motionProps = {
-  whileHover: { scale: 1.1 },
+  whileHover: { scale: 1.05 },
   whileTap: { scale: 0.85 },
   variants: {
     hidden: { y: 20, opacity: 0 },

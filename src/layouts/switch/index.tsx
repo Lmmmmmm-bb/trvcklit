@@ -1,20 +1,26 @@
-import { FC } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { Button } from '@douyinfe/semi-ui';
+import { FC, useContext, useMemo } from 'react';
+import { Link } from 'react-router-dom';
+import { Space } from '@douyinfe/semi-ui';
 import { IconFemale, IconMale } from '@douyinfe/semi-icons';
 import styles from './index.module.scss';
-import BackgroundImg from '/background.webp';
-import Logo from '/logo.svg';
 import ThemeSwitch from '@/components/theme-switch';
 import { useClientSize } from '@/common/hooks';
-
-const BOUNDARY_HEIGHT = 600;
+import { BOUNDARY_HEIGHT, linkThemeColor } from './config';
+import { appContext } from '@/app/context';
+import { ThemeModeEnum } from '@/common/models';
+import BackgroundImg from '/background.webp';
+import Logo from '/logo.svg';
 
 const Switch: FC = () => {
-  const navigator = useNavigate();
+  const { themeMode } = useContext(appContext);
   const { height } = useClientSize();
-
-  const handleNavigate = (to: string) => navigator(to);
+  const color = useMemo(
+    () =>
+      themeMode === ThemeModeEnum.Light
+        ? linkThemeColor.light
+        : linkThemeColor.dark,
+    [themeMode]
+  );
 
   return (
     <div className={styles.wrapper}>
@@ -29,20 +35,18 @@ const Switch: FC = () => {
           draggable={false}
         />
         <div className={styles.innerWrapper}>
-          <Button
-            theme='borderless'
-            icon={<IconFemale />}
-            onClick={() => handleNavigate('you')}
-          >
-            YOU
-          </Button>
-          <Button
-            theme='borderless'
-            icon={<IconMale />}
-            onClick={() => handleNavigate('me')}
-          >
-            ME
-          </Button>
+          <Link className={styles.link} style={{ color }} to='/you'>
+            <Space>
+              <IconFemale />
+              YOU
+            </Space>
+          </Link>
+          <Link className={styles.link} style={{ color }} to='/me'>
+            <Space>
+              <IconMale />
+              ME
+            </Space>
+          </Link>
           {height > BOUNDARY_HEIGHT && (
             <img
               className={styles.image}
