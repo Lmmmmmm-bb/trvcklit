@@ -12,6 +12,6 @@ export const motionProps = {
 
 export const checkerColor = {
   checked: '#5dc264',
-  unchecked: '#a9abc6',
+  unchecked: '#c5c7c8',
   darkUnchecked: '#232429'
 };
