@@ -9,7 +9,8 @@ const pwaOptions: Partial<VitePWAOptions> = {
     'robots.txt',
     'favicon.ico',
     'apple-touch-icon.png',
-    'background.webp'
+    'background.svg',
+    'logo.svg'
   ],
   manifest: {
     name: 'Trvcklit - travel checklist helper',

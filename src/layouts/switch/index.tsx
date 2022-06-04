@@ -8,7 +8,7 @@ import { useClientSize } from '@/common/hooks';
 import { BOUNDARY_HEIGHT, linkThemeColor } from './config';
 import { appContext } from '@/app/context';
 import { ThemeModeEnum } from '@/common/models';
-import BackgroundImg from '/background.webp';
+import BackgroundImg from '/background.svg';
 import Logo from '/logo.svg';
 
 const Switch: FC = () => {
