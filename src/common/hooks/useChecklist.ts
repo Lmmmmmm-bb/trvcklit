@@ -1,12 +1,13 @@
 import { useEffect, useMemo, useState } from 'react';
 import { Toast } from '@douyinfe/semi-ui';
-import { useSupa } from '.';
+import { useSupa, useNetwork } from '.';
 import { ICheckItem, LocalKeysEnum } from '../models';
 import { getLocalItem, setLocalItem } from '../utils';
 
 export const useChecklist = (localKey: LocalKeysEnum) => {
   const excludeType = localKey === LocalKeysEnum.Me ? 'you' : 'me';
   const supabase = useSupa();
+  const isOnLine = useNetwork();
   const [isFetching, setIsFetching] = useState(false);
   const [checklist, setChecklist] = useState<ICheckItem[]>(
     JSON.parse(getLocalItem(localKey, '[]'))
@@ -44,6 +45,18 @@ export const useChecklist = (localKey: LocalKeysEnum) => {
     }
   };
 
+  const updateChecklist = () => {
+    if (isOnLine) {
+      fetchList();
+    } else {
+      const resetChecklist = checklist.map((item) => ({
+        ...item,
+        checked: false
+      }));
+      setChecklist(resetChecklist);
+    }
+  };
+
   useEffect(() => {
     checklist.length === 0 && fetchList();
   }, []);
@@ -52,5 +65,5 @@ export const useChecklist = (localKey: LocalKeysEnum) => {
     setLocalItem(localKey, JSON.stringify(checklist));
   }, [checklist]);
 
-  return { category, isFetching, setCheckItem, refresh: fetchList };
+  return { category, isFetching, setCheckItem, refresh: updateChecklist };
 };
