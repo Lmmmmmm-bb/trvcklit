@@ -1,7 +1,9 @@
+@use '@/common/styles/variables' as v;
+
 .wrapper {
   padding: 20px;
   font-weight: 500;
-  color: #f5f5f5;
+  color: v.$primary-bg-color;
   font-size: 14px;
   border-radius: 6px;
   cursor: pointer;

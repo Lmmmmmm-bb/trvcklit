@@ -1,8 +1,10 @@
+@use './common/styles/variables' as v;
+
 html,
 body {
   height: 100%;
-  background-color: #f5f5f5;
-  color: #333;
+  color: v.$primary-color;
+  background-color: v.$primary-bg-color;
   transition: background-color 0.3s;
   font-family: 'PingFang SC', -apple-system, 'Segoe UI', 'Microsoft YaHei',
     sans-serif !important;
@@ -18,10 +20,10 @@ body {
 }
 
 body[theme-mode='dark'] {
-  color: #f9f9f9;
-  background-color: #16161a;
+  color: v.$dark-primary-color;
+  background-color: v.$dark-primary-bg-color;
 
   .toast-message {
-    color: #16161a;
+    color: v.$primary-color;
   }
 }
