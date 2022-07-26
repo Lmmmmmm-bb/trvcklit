@@ -7,14 +7,14 @@
   "packageManager": "pnpm@7.6.0",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Lmmmmmm-bb/Trvcklit"
+    "url": "git+https://github.com/Lmmmmmm-bb/trvcklit"
   },
   "author": {
     "email": "lmmmmmm12138@gmail.com",
     "name": "_lmmmmmm"
   },
   "bugs": {
-    "url": "https://github.com/Lmmmmmm-bb/Trvcklit/issues",
+    "url": "https://github.com/Lmmmmmm-bb/trvcklit/issues",
     "email": "lmmmmmm12138@gmail.com"
   },
   "maintainers": [
