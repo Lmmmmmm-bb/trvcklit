@@ -1,12 +1,12 @@
 import { FC, useEffect } from 'react';
-import { Route, Routes } from 'react-router-dom';
-import Switch from '@/layouts/switch';
-import You from '@/layouts/you';
-import Me from '@/layouts/me';
-import { appContext } from './context';
+import { RouterProvider } from 'react-router-dom';
+
 import { useTheme } from '@/common/hooks';
 import { ThemeModeEnum } from '@/common/models';
 import ReloadPrompt from '@/components/reload-prompt';
+
+import { router } from './router';
+import { appContext } from './context';
 
 const App: FC = () => {
   const { themeMode, toggleTheme, setThemeMode } = useTheme();
@@ -25,11 +25,7 @@ const App: FC = () => {
 
   return (
     <appContext.Provider value={{ themeMode, toggleTheme }}>
-      <Routes>
-        <Route path='/' element={<Switch />} />
-        <Route path='/you' element={<You />} />
-        <Route path='/me' element={<Me />} />
-      </Routes>
+      <RouterProvider router={router} />
       <ReloadPrompt />
     </appContext.Provider>
   );
