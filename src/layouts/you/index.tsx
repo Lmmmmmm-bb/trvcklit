@@ -4,11 +4,11 @@ import { motion } from 'framer-motion';
 import { Button, Divider } from '@douyinfe/semi-ui';
 import { IconArrowLeft } from '@douyinfe/semi-icons';
 import styles from './index.module.scss';
-import CardChecker from '@/components/card-checker';
-import { useChecklist } from '@/common/hooks';
+import CardChecker from '~/components/card-checker';
+import { useChecklist } from '~/common/hooks';
 import { motionProps } from './config';
-import { LocalKeysEnum } from '@/common/models';
-import ThemeSwitch from '@/components/theme-switch';
+import { LocalKeysEnum } from '~/common/models';
+import ThemeSwitch from '~/components/theme-switch';
 
 const You: FC = () => {
   const navigator = useNavigate();

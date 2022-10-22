@@ -1,9 +1,9 @@
 import { FC, useEffect } from 'react';
 import { RouterProvider } from 'react-router-dom';
 
-import { useTheme } from '@/common/hooks';
-import { ThemeModeEnum } from '@/common/models';
-import ReloadPrompt from '@/components/reload-prompt';
+import { useTheme } from '~/common/hooks';
+import { ThemeModeEnum } from '~/common/models';
+import ReloadPrompt from '~/components/reload-prompt';
 
 import { router } from './router';
 import { appContext } from './context';

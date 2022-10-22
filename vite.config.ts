@@ -48,7 +48,7 @@ export default defineConfig(({ mode }) => {
     envPrefix: 'APP_',
     resolve: {
       alias: {
-        '@': resolve(__dirname, 'src')
+        '~': resolve(__dirname, 'src')
       }
     }
   };

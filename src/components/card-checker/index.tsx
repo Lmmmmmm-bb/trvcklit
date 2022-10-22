@@ -2,8 +2,8 @@ import { FC, useMemo, PropsWithChildren, useContext } from 'react';
 import { motion } from 'framer-motion';
 import { checkerColor, motionProps } from './config';
 import styles from './index.module.scss';
-import { ThemeModeEnum } from '@/common/models';
-import { appContext } from '@/app/context';
+import { ThemeModeEnum } from '~/common/models';
+import { appContext } from '~/app/context';
 
 interface ICardCheckerProps {
   checked: boolean;

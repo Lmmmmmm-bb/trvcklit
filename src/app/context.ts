@@ -1,6 +1,6 @@
 import { createContext } from 'react';
-import { ThemeModeEnum } from '@/common/models';
-import { isSystemDarkMode } from '@/common/utils';
+import { ThemeModeEnum } from '~/common/models';
+import { isSystemDarkMode } from '~/common/utils';
 import { IAppContext } from './type';
 
 export const appContext = createContext<IAppContext>({

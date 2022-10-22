@@ -3,11 +3,11 @@ import { Link } from 'react-router-dom';
 import { Space } from '@douyinfe/semi-ui';
 import { IconFemale, IconMale } from '@douyinfe/semi-icons';
 import styles from './index.module.scss';
-import ThemeSwitch from '@/components/theme-switch';
-import { useClientSize } from '@/common/hooks';
+import ThemeSwitch from '~/components/theme-switch';
+import { useClientSize } from '~/common/hooks';
 import { BOUNDARY_HEIGHT, linkThemeColor } from './config';
-import { appContext } from '@/app/context';
-import { ThemeModeEnum } from '@/common/models';
+import { appContext } from '~/app/context';
+import { ThemeModeEnum } from '~/common/models';
 import BackgroundImg from '/background.svg';
 import Logo from '/logo.svg';
 

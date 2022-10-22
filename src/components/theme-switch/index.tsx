@@ -3,8 +3,8 @@ import { Button } from '@douyinfe/semi-ui';
 import { IconMoon, IconSun } from '@douyinfe/semi-icons';
 import { AnimatePresence, motion } from 'framer-motion';
 import styles from './index.module.scss';
-import { ThemeModeEnum } from '@/common/models';
-import { appContext } from '@/app/context';
+import { ThemeModeEnum } from '~/common/models';
+import { appContext } from '~/app/context';
 import { motionProps } from './config';
 
 const ThemeSwitch: FC = () => {

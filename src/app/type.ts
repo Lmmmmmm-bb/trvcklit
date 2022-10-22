@@ -1,4 +1,4 @@
-import { ThemeModeEnum } from '@/common/models';
+import { ThemeModeEnum } from '~/common/models';
 
 export interface IAppContext {
   themeMode: ThemeModeEnum;
