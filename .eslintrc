@@ -26,6 +26,9 @@
   "plugins": ["react", "@typescript-eslint"],
   "rules": {
     "react/react-in-jsx-scope": "off",
-    "no-console": "warn"
+    "no-console": "warn",
+    "react/self-closing-comp": "error",
+    "arrow-body-style": "error",
+    "prefer-template": "error"
   }
 }

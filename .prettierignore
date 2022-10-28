@@ -1,5 +1,8 @@
 node_modules
 
+dev-dist
+dist
+
 pnpm-lock.yaml
 
 LICENSE
