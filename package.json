@@ -4,7 +4,7 @@
   "version": "0.0.1",
   "license": "MIT",
   "description": "travel checklist to help you pack",
-  "packageManager": "pnpm@7.9.0",
+  "packageManager": "pnpm@7.13.5",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Lmmmmmm-bb/trvcklit"
