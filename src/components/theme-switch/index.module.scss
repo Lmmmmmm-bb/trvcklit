@@ -1,4 +1,10 @@
 .wrapper {
   cursor: pointer;
   overflow: hidden;
+
+  :global {
+    .semi-button-content > div {
+      display: flex;
+    }
+  }
 }
